@@ -1,1 +1,1 @@
-web: gunicorn todo_backend.wsgi
+web: gunicorn todo_backend.wsgi:application
