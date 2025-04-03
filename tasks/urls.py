@@ -8,6 +8,7 @@ def home(request):
 
 urlpatterns = [
     path('', home, name='home'),  # This will handle requests to the root URL '/'
+    path('admin/', admin.site.urls),  # Add the admin URL for Django admin
     path('tasks/add/', AddTaskView.as_view(), name='task-add'),
     path('tasks/edit/<int:pk>/', EditTaskView.as_view(), name='task-edit'),
     path('tasks/delete/<int:pk>/', DeleteTaskView.as_view(), name='task-delete'),
