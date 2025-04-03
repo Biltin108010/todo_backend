@@ -1,5 +1,9 @@
 from django.urls import path
 from .views import AddTaskView, EditTaskView, DeleteTaskView, SearchTaskView, TaskDetailView
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to the Todo app!")
 
 urlpatterns = [
     path('tasks/add/', AddTaskView.as_view(), name='task-add'),
