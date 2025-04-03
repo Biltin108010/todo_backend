@@ -1,6 +1,7 @@
 from rest_framework import generics, filters
 from .models import Task
 from .serializers import TaskSerializer
+from rest_framework.filters import OrderingFilter
 
 # Add a new Task
 class AddTaskView(generics.CreateAPIView):
@@ -17,11 +18,10 @@ class DeleteTaskView(generics.DestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
-# Search for Tasks
-class SearchTaskView(generics.ListCreateAPIView):  # ✅ Supports GET & POST
+class SearchTaskView(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    filter_backends = [filters.SearchFilter]
+    filter_backends = [filters.SearchFilter, OrderingFilter]
     search_fields = ['title', 'description']
 
 class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
