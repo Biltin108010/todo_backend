@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from .views import AddTaskView, EditTaskView, DeleteTaskView, SearchTaskView, TaskDetailView
 from django.http import HttpResponse
+from .views import SecureHelloView
 
 # Your home view
 def home(request):
@@ -16,4 +17,5 @@ urlpatterns = [
     path('tasks/search/', SearchTaskView.as_view(), name='task-search'),
     path('tasks/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),
     path('tasks/', SearchTaskView.as_view(), name='task-list'), 
+    path('secure-hello/', SecureHelloView.as_view()),
 ]

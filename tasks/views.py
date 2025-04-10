@@ -2,6 +2,9 @@ from rest_framework import generics, filters
 from .models import Task
 from .serializers import TaskSerializer
 from rest_framework.filters import OrderingFilter
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 import logging
 
 logger = logging.getLogger(__name__)
@@ -46,3 +49,7 @@ class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
     # Allow PATCH for partial updates
     http_method_names = ['get', 'put', 'patch', 'delete']
 
+class SecureHelloView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request):
+        return Response({"message": f"Hello, {request.user.username}!"})
