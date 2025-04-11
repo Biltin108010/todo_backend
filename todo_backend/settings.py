@@ -72,11 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'todo_backend.wsgi.application'
 
-# Check if DATABASE_URL is set, and parse it if it exists
-database_url = os.environ.get("DATABASE_URL")
-if database_url:
-    DATABASES["default"] = dj_database_url.parse(database_url)
-
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
