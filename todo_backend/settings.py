@@ -72,14 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'todo_backend.wsgi.application'
 
-# Default database (SQLite)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # Check if DATABASE_URL is set, and parse it if it exists
 database_url = os.environ.get("DATABASE_URL")
 if database_url:
