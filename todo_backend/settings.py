@@ -80,7 +80,7 @@ if database_url:
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://todolist_tqjy_user:VUmaSUWr6MYwDwLKXRdB3wcESPjNjjXb@dpg-cvmo1beuk2gs73a1n130-a/todolist_tqjy',
+        default='postgresql://todolist_tqjy_user:VUmaSUWr6MYwDwLKXRdB3wcESPjNjjXb@dpg-cvmo1beuk2gs73a1n130-a.oregon-postgres.render.com/todolist_tqjy',
         conn_max_age=600
     )
 }
